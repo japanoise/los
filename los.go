@@ -14,10 +14,11 @@ type Map interface {
 	CantSeeThrough(int, int) bool // Can you see through x, y?
 }
 
-// CalcVisibility updates the visibility for the given map
-func CalcVisibility(m Map, px, py, light int) {
-	clearlight(m, px, py, light)
-	fov(m, px, py, light)
+// CalcVisibility updates the visibility for the given map, about the
+// given point (px, py) and with the radius given.
+func CalcVisibility(m Map, px, py, radius int) {
+	clearlight(m, px, py, radius)
+	fov(m, px, py, radius)
 }
 
 func clearlight(m Map, px, py, light int) {
